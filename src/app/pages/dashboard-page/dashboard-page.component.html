@@ -1,22 +1,40 @@
-<mat-drawer-container class="example-container" >
-    <mat-drawer style="width: 250px;" #drawer mode="side" opened>
-        <mat-list role="list">
-            <mat-list-item routerLink="" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active" style="cursor: pointer;" role="listitem">Home</mat-list-item>
-            <mat-list-item routerLink="/product" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active" style="cursor: pointer;" role="listitem">Productos</mat-list-item>
-          </mat-list>
-    </mat-drawer>
-    <mat-drawer-content>
-        <mat-toolbar color="primary">
+<mat-drawer-container autosize>
+    <mat-drawer style="width: 250px;" #drawer mode="side" role="navigation" opened>
+        <mat-toolbar>
             <mat-toolbar-row>
-                <button mat-icon-button (click)="drawer.toggle()" ><mat-icon>menu</mat-icon></button>
-                <span>ABC|Educate</span>
-                <span class="example-spacer"></span>
-                <div class="img-rounded">
-                </div>
+                <div class="img-rounded"></div>
+                <h2>{{_authService.userLogged}}</h2>
             </mat-toolbar-row>
         </mat-toolbar>
-        <div style="margin: 0 auto;width: 90%;">
-            <router-outlet></router-outlet>
-        </div>
+        <mat-nav-list role="list">
+            <h2 matSubheader> Operations </h2>
+            <mat-list-item routerLink="" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active"
+                           style="cursor: pointer;" role="listitem">
+                <mat-icon class="mqtt-side-icons" matListIcon> dashboard</mat-icon>
+                Home
+            </mat-list-item>
+            <mat-list-item routerLink="/product" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active"
+                           style="cursor: pointer;" role="listitem">
+                <mat-icon class="mqtt-side-icons" matListIcon> assignment</mat-icon>
+                Inventario
+            </mat-list-item><mat-list-item routerLink="/product" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="users"
+                           style="cursor: pointer;" role="listitem">
+                <mat-icon class="mqtt-side-icons" matListIcon>supervised_user_circle</mat-icon>
+                Usuarios
+            </mat-list-item>
+        </mat-nav-list>
+    </mat-drawer>
+    <mat-drawer-content role="main" >
+        <mat-toolbar color="primary">
+            <mat-toolbar-row>
+                <button mat-icon-button (click)="drawer.toggle()">
+                    <mat-icon>menu</mat-icon>
+                </button>
+                <span>ABC|Educate</span>
+                <span class="example-spacer"></span>
+
+            </mat-toolbar-row>
+        </mat-toolbar>
+        <router-outlet></router-outlet>
     </mat-drawer-content>
 </mat-drawer-container>

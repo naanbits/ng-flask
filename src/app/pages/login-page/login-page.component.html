@@ -1,23 +1,29 @@
-<div style="width: 90%;height: 100%; display: flex;justify-content: center;align-items: center;">
-    <mat-card style="width: 250px;height: 100px;">
-        <mat-card-header>
-            <div mat-card-avatar class="example-header-image"></div>
-            <mat-card-title>Login</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-            <div class="example-container">
-                <mat-form-field hintLabel="Max 10 characters">
-                  <input matInput #input maxlength="10" placeholder="Enter some input">
-                  <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
-                </mat-form-field>
-              
-                <mat-form-field>
-                  <mat-select placeholder="Select me">
-                    <mat-option value="option">Option</mat-option>
-                  </mat-select>
-                  <mat-hint align="end">Here's the dropdown arrow ^</mat-hint>
-                </mat-form-field>
-              </div>
-        </mat-card-content>
-    </mat-card>
+<div  class="slider">
+    <div class="load">
+        <div style="display: flex;justify-content: center;align-items: center; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); -webkit-transform: translate(-50%, -50%);">
+            <mat-card style="width: 300px;height: 270px;">
+                <mat-card-header>
+                    <mat-card-title>LOGIN</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <form (ngSubmit)="submit()" [formGroup]="form" class="example-container" novalidate (submit)="$event.preventDefault()">
+                        <mat-form-field style="margin-bottom: 20px;font-size: 18px!important;">
+                            <input formControlName="username" matInput placeholder="Email">
+                        </mat-form-field>
+
+                        <mat-form-field style="font-size: 18px!important;">
+                            <input formControlName="password" matInput placeholder="Contraseña" [type]="hide ? 'password' : 'text'">
+                            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                                    [attr.aria-pressed]="hide">
+                                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            </button>
+                        </mat-form-field>
+
+                        <button style="margin-top: 20px;" mat-raised-button color="primary" type="submit">Login</button>
+
+                    </form>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
 </div>

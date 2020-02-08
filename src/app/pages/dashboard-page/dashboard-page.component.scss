@@ -1,34 +1,27 @@
-.example-icon {
-  padding: 0 14px;
-}
-
-.example-spacer {
-  flex: 1 1 auto;
-}
-
-.example-container {
-  width: 100%;
-  margin: 0;
-  height: 100%;
-}
-
-mat-drawer-content {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.img-rounded{
-    width: 40px;
-    height: 40px;
+.img-rounded {
+    margin-right: 10px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    background-image: url('https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/75/755f87b22d0cf6f2dacd7e259d4b0023f17d8571_full.jpg');
+    background-image: url('https://difatizapan.gob.mx/imgDirectorio/img_avatar.png');
 }
 
-.active{
-  background-color: #3f51b5;
-  color:white
+.active {
+    background-color: #3f51b5;
+    color: white;
+
+    &:hover {
+        background-color: #3f51b5;;
+    }
+
+    &:focus {
+        background-color: #3f51b5;;
+    }
+}
+
+.mat-drawer-container {
+    height: 100vh !important;
 }

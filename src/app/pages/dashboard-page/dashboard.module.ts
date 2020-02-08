@@ -1,30 +1,34 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import { DashboardRoutingModule } from './dashboard-routing.module';
-import { ProfileUserPageComponent } from './profile-user-page/profile-user-page.component';
-import { HomePageComponent } from './home-page/home-page.component';
-import { MaterialModule } from 'src/app/material.module';
-import { ProductPageComponent } from './product-page/product-page.component';
+import {DashboardRoutingModule} from './dashboard-routing.module';
+import {ProfileUserPageComponent} from './profile-user-page/profile-user-page.component';
+import {HomePageComponent} from './home-page/home-page.component';
+import {ProductPageComponent} from './product-page/product-page.component';
+import {ComponentModule} from '../../components/component.module';
+import {MaterialModule} from '../../material.module';
+import { AddProductPageComponent } from './add-product-page/add-product-page.component';
 
 
-const components =[
-  ProfileUserPageComponent,HomePageComponent
+const components = [
+    ProfileUserPageComponent, HomePageComponent
 ];
 
 const modules = [
-  DashboardRoutingModule
-]
+    DashboardRoutingModule,
+    MaterialModule,
+    ComponentModule
+];
 
 @NgModule({
-  declarations: [ProfileUserPageComponent, HomePageComponent, ProductPageComponent],
-  imports: [
-    CommonModule,
-    MaterialModule,
-    DashboardRoutingModule
-  ],
-  exports:[
-    ...components,...modules
-  ]
+    declarations: [ProfileUserPageComponent, HomePageComponent, ProductPageComponent, AddProductPageComponent],
+    imports: [
+        CommonModule,
+        ...modules
+    ],
+    exports: [
+        ...components,
+    ]
 })
-export class DashboardModule { }
+export class DashboardModule {
+}
