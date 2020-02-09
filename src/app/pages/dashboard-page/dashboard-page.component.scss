@@ -9,8 +9,10 @@
     background-image: url('https://difatizapan.gob.mx/imgDirectorio/img_avatar.png');
 }
 
+$color : #3f51b5;
+
 .active {
-    background-color: #3f51b5;
+    background-color:$color;
     color: white;
 
     &:hover {
@@ -21,6 +23,7 @@
         background-color: #3f51b5;;
     }
 }
+
 
 .mat-drawer-container {
     height: 100vh !important;

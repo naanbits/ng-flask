@@ -9,6 +9,16 @@
                     <form (ngSubmit)="submit()" [formGroup]="form" class="example-container" novalidate (submit)="$event.preventDefault()">
                         <mat-form-field style="margin-bottom: 20px;font-size: 18px!important;">
                             <input formControlName="username" matInput placeholder="Email">
+                            <mat-hint>Email Required</mat-hint>
+                            <mat-error *ngIf="this.form.get('username').dirty" >
+                                <div *ngIf="this.form.get('username').hasError('required') ">
+                                    El email es requido
+                                </div>
+                                <div *ngIf="this.form.get('username').hasError('pattern') ">
+                                    El correo es invalido
+                                </div>
+                        
+                            </mat-error>
                         </mat-form-field>
 
                         <mat-form-field style="font-size: 18px!important;">

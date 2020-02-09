@@ -8,7 +8,7 @@ import {MatListModule} from '@angular/material/list';
 import {MatTableModule} from '@angular/material/table';
 import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material';
+import {MatInputModule, MatSnackBarModule} from '@angular/material';
 import {FlexLayoutModule} from '@angular/flex-layout';
 const modules = [
     MatToolbarModule,
@@ -16,6 +16,7 @@ const modules = [
     MatIconModule,
     MatInputModule,
     MatButtonModule,
+    MatSnackBarModule,
     MatTableModule,
     MatToolbarModule,
     MatCardModule,
