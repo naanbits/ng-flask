@@ -34,11 +34,6 @@ export class AuthService {
     public get token() {
         return this.user.access_token;
     }
-    public renewToken() {
-        this.login(this.user.User.username, 'admin').subscribe(e=>{
-            this.setUser = e;
-        });
-    }
     public logout() {
         if (this.logged) {
             localStorage.removeItem('user');

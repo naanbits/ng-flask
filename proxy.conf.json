@@ -4,5 +4,11 @@
         "secure": false,
         "changeOrigin": true,
         "logLevel": "debug"
+    },
+    "/insert_product/*": {
+        "target": "https://gentle-refuge-26139.herokuapp.com",
+        "secure": false,
+        "changeOrigin": true,
+        "logLevel": "debug"
     }
 }

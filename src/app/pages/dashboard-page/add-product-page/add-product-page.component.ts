@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {ProductService} from '../../../services/product.service';
 
 @Component({
-  selector: 'app-add-product-page',
-  templateUrl: './add-product-page.component.html',
-  styleUrls: ['./add-product-page.component.scss']
+    selector: 'app-add-product-page',
+    templateUrl: './add-product-page.component.html',
+    styleUrls: ['./add-product-page.component.scss']
 })
 export class AddProductPageComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
 
 }
