@@ -5,14 +5,19 @@ import {MaterialModule} from '../material.module';
 import { FormProductComponent } from './form-product/form-product.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {NgxBarcode6Module} from 'ngx-barcode6';
+import { OptionSelectModalComponent } from './option-select-modal/option-select-modal.component';
 
 const components = [
     CommandBarComponent,
-    FormProductComponent
+    FormProductComponent,
+    OptionSelectModalComponent
 ];
 
 @NgModule({
-    declarations: [...components],
+    declarations: [...components, ],
+    entryComponents: [
+      OptionSelectModalComponent
+    ],
     imports: [
         CommonModule,
         ReactiveFormsModule,

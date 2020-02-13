@@ -11,8 +11,8 @@ import {MatSnackBar} from '@angular/material/snack-bar';
     styleUrls: ['./login-page.component.scss']
 })
 export class LoginPageComponent implements OnInit, OnDestroy {
-    private hide = true;
-    private form: FormGroup;
+    public hide = true;
+    public form: FormGroup;
     private subscriptionAuth: Subscription;
 
     constructor(private _authService: AuthService, private router: Router, private _snackBar: MatSnackBar) {

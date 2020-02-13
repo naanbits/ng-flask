@@ -1,6 +1,6 @@
 <app-command-bar>
     <div fxFlex fxLayout fxLayoutAlign="flex-end">
-        <button [disabled]="this.selection.isEmpty()"  mat-button class="mqtt-command-bar-button">
+        <button [disabled]="this.selection.isEmpty()" (click)="this.openDialog()"  mat-button class="mqtt-command-bar-button">
             <mat-icon>delete</mat-icon>
             {{ 'Eliminar' }}
         </button>

@@ -7,8 +7,6 @@ import {environment} from '../../environments/environment';
     providedIn: 'root'
 })
 export class ProductService {
-    private baseUrl = environment.urlBase;
-
     constructor(private _authService: AuthService, private _httpClient: HttpClient) {
     }
 
@@ -16,17 +14,52 @@ export class ProductService {
         const headers = new HttpHeaders().set('Authorization', 'Bearer ' + this._authService.token)
             .set('accept', 'application/json')
             .set('content-type', 'application/json');
-        return this._httpClient.get('/products_list', {
+        console.log(environment.products.getAll);
+        return this._httpClient.get(environment.products.getAll, {
             headers
         });
     }
-    public productSave(product: {description, code, price}) {
+
+    public getProduct(id: number) {
+        const headers = new HttpHeaders().set('Authorization', 'Bearer ' + this._authService.token)
+            .set('accept', 'application/json')
+            .set('content-type', 'application/json');
+        return this._httpClient.get(environment.products.get + id,{
+            headers
+        });
+    }
+
+    public deleteProduct(id: number) {
+        const headers = new HttpHeaders().set('Authorization', 'Bearer ' + this._authService.token)
+            .set('accept', 'application/json')
+            .set('content-type', 'application/json');
+        return this._httpClient.get(environment.products.delete + id, {
+            headers
+        });
+    }
+
+    public productSave(product: { description, code, price }) {
         const {description, code, price} = product;
         const headers = new HttpHeaders().set('Authorization', 'Bearer ' + this._authService.token)
             .set('accept', 'application/json')
             .set('content-type', 'application/json');
 
-        return this._httpClient.post('/insert_product', {
+        return this._httpClient.post(environment.products.insert, {
+            DESCRIPTION: description,
+            PRICE: price,
+            PRINCIPAL_CODE: code
+        }, {
+            headers
+        });
+    }
+
+    public productEdit(id, product: { description, code, price }) {
+        const {description, code, price} = product;
+        const headers = new HttpHeaders().set('Authorization', 'Bearer ' + this._authService.token)
+            .set('accept', 'application/json')
+            .set('content-type', 'application/json');
+
+        return this._httpClient.post( environment.products.delete + id, {
             DESCRIPTION: description,
             PRICE: price,
             PRINCIPAL_CODE: code

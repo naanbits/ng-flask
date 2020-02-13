@@ -11,7 +11,7 @@ import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 export class DashboardPageComponent implements OnInit {
     menu = 'side';
     opened = true;
-    constructor(private _authService: AuthService, private _router: Router, private breakpointObserver: BreakpointObserver) {
+    constructor(public _authService: AuthService, private _router: Router, public breakpointObserver: BreakpointObserver) {
         breakpointObserver.observe([
             Breakpoints.Small,
             Breakpoints.XSmall,

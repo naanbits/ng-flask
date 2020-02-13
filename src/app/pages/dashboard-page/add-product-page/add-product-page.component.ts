@@ -9,8 +9,18 @@ import {ProductService} from '../../../services/product.service';
     styleUrls: ['./add-product-page.component.scss']
 })
 export class AddProductPageComponent implements OnInit {
+    constructor(private productService: ProductService) {
+    }
 
     ngOnInit() {
     }
 
+    save(form) {
+        if (form.valid) {
+            console.log(form);
+            this.productService.productSave(form.getRawValue()).subscribe(e => {
+                console.log(e);
+            });
+        }
+    }
 }

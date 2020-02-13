@@ -8,7 +8,7 @@ import {MatListModule} from '@angular/material/list';
 import {MatTableModule} from '@angular/material/table';
 import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatCheckboxModule, MatGridListModule, MatInputModule} from '@angular/material';
+import {MatCheckboxModule, MatDialogModule, MatGridListModule, MatInputModule} from '@angular/material';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 
@@ -25,6 +25,7 @@ const modules = [
     FlexLayoutModule,
     MatGridListModule,
     MatFormFieldModule,
+    MatDialogModule,
     MatCheckboxModule,
     MatSidenavModule,
     MatTableModule,

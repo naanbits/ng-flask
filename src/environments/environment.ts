@@ -4,7 +4,13 @@
 
 export const environment = {
     production: false,
-    urlBase: 'https://gentle-refuge-26139.herokuapp.com'
+    products: {
+        getAll: '/products_list',
+        delete: '/delete_product/',
+        update: '/update_product/',
+        insert: '/insert_product',
+        get: '/get_product/'
+    }
 };
 
 /*

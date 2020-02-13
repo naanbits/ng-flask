@@ -7,7 +7,7 @@
     </div>
 </app-command-bar>
 <div class="crm-content-container" style="margin-top: 10px">
-    <form [formGroup]="this.form" id="CreateForm" (submit)="$event.preventDefault()" (ngSubmit)="this.save()">
+    <form [formGroup]="this.form" id="CreateForm" (submit)="$event.preventDefault()" (ngSubmit)="this.save.emit(this.form)">
         <mat-grid-list [cols]="this.cols" gutterSize="4" rowHeight="150px">
             <mat-grid-tile>
                 <mat-form-field appearance="standard">
@@ -34,7 +34,7 @@
                 </mat-form-field>
             </mat-grid-tile>
             <mat-grid-tile>
-                <ngx-barcode6 [bc-display-value]="true" [bc-value]="this.form.get('code').value"></ngx-barcode6>
+                <ngx-barcode6 style="background-color: transparent" [bc-display-value]="true" [bc-value]="this.form.get('code').value"></ngx-barcode6>
             </mat-grid-tile>
         </mat-grid-list>
     </form>
