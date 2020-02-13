@@ -1,0 +1,41 @@
+<app-command-bar>
+    <div fxFlex fxLayout fxLayoutAlign="flex-end">
+        <button form="CreateForm" type="submit" mat-button class="mqtt-command-bar-button">
+            <mat-icon>save</mat-icon>
+            {{ 'Guardar' }}
+        </button>
+    </div>
+</app-command-bar>
+<div class="crm-content-container" style="margin-top: 10px">
+    <form [formGroup]="this.form" id="CreateForm" (submit)="$event.preventDefault()" (ngSubmit)="this.save.emit(this.form)">
+        <mat-grid-list [cols]="this.cols" gutterSize="4" rowHeight="150px">
+            <mat-grid-tile>
+                <mat-form-field appearance="standard">
+                    <mat-label>Descripción</mat-label>
+                    <input formControlName="description" matInput>
+                    <mat-icon matSuffix>info</mat-icon>
+                    <mat-hint>Descripción del producto</mat-hint>
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-form-field appearance="standard">
+                    <mat-label>Precio</mat-label>
+                    <input formControlName="price" matInput>
+                    <mat-icon matSuffix>euro</mat-icon>
+                    <mat-hint>Precio del producto</mat-hint>
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-form-field appearance="standard">
+                    <mat-label>Codigo Principal</mat-label>
+                    <input formControlName="code" matInput>
+                    <mat-icon matSuffix>crop_free</mat-icon>
+                    <mat-hint>Codigo de barras del producto</mat-hint>
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <ngx-barcode6 style="background-color: transparent" [bc-display-value]="true" [bc-value]="this.form.get('code').value"></ngx-barcode6>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </form>
+</div>

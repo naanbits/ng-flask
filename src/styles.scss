@@ -27,7 +27,7 @@ app-dashboard-page{
     height: 100vh;
 }
 
-.mqtt-command-bar {
+.mqtt-command-bar{
     width: 100%;
     top: $mat-toolbar-height-desktop !important;
     left: 0;
@@ -36,11 +36,7 @@ app-dashboard-page{
     height: $crm-command-bar-height-desktop !important;
     min-height: $crm-command-bar-height-desktop !important;
 
-    @media ($mat-xsmall) {
-        top: $mat-toolbar-height-mobile;
-        height: $crm-command-bar-height-mobile !important;
-        min-height: $crm-command-bar-height-mobile !important;
-    }
+
 
     background-color: #f5f5f5 !important;
 }
@@ -58,4 +54,17 @@ app-dashboard-page{
     }
 
     // background-color: black;
+}
+
+.danger{
+    color: white;
+    background-color: #cc1330 !important;
+}
+.success{
+    color: white;
+    background-color: #2ccc35 !important;
+}
+.warning{
+    color: white;
+    background-color: #c9cc3a !important;
 }

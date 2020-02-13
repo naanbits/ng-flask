@@ -1,5 +1,13 @@
 <app-command-bar>
     <div fxFlex fxLayout fxLayoutAlign="flex-end">
+        <button [disabled]="this.selection.isEmpty()" (click)="this.openDialog()"  mat-button class="mqtt-command-bar-button">
+            <mat-icon>delete</mat-icon>
+            {{ 'Eliminar' }}
+        </button>
+        <button [disabled]="this.selection.isEmpty()" (click)="editProduct()" mat-button class="mqtt-command-bar-button">
+            <mat-icon>edit</mat-icon>
+            {{ 'Editar' }}
+        </button>
         <button routerLink="/add-product" mat-button class="mqtt-command-bar-button">
             <mat-icon>add_box</mat-icon>
             {{ 'Agregar' }}
@@ -15,6 +23,18 @@
 
         <table mat-table [dataSource]="dataSource"
                style="margin-top:12px;width: 100%;background-color: #fafafa !important;">
+            <ng-container matColumnDef="select">
+                <mat-header-cell *matHeaderCellDef>
+                    Selección
+                </mat-header-cell>
+                <mat-cell *matCellDef="let row">
+                    <mat-checkbox (click)="$event.stopPropagation()"
+                                  color="primary"
+                                  (change)="this.itemSelect(row,$event)"
+                                  [checked]="selection.isSelected(row)">
+                    </mat-checkbox>
+                </mat-cell>
+            </ng-container>
 
             <!--- Note mat-header-cellat mat-header-cellese columns can be defined in any order.
                   The actual rendered columns are set as a property on mat-header-celle row definition" -->
@@ -51,5 +71,9 @@
             <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
             <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
         </table>
+        <mat-paginator [length]="100"
+                       [pageSize]="5"
+                       [pageSizeOptions]="[5, 10, 25, 100]">
+        </mat-paginator>
     </div>
 </div>

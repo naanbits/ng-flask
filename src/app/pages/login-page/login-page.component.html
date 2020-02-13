@@ -1,7 +1,7 @@
 <div  class="slider">
     <div class="load">
         <div style="display: flex;justify-content: center;align-items: center; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); -webkit-transform: translate(-50%, -50%);">
-            <mat-card style="width: 300px;height: 270px;">
+            <mat-card style="width: 300px;height: 280px;">
                 <mat-card-header>
                     <mat-card-title>LOGIN</mat-card-title>
                 </mat-card-header>
@@ -23,7 +23,7 @@
 
                         <mat-form-field style="font-size: 18px!important;">
                             <input formControlName="password" matInput placeholder="Contraseña" [type]="hide ? 'password' : 'text'">
-                            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                            <button mat-icon-button matSuffix type="button" (click)="hide = !hide" [attr.aria-label]="'Hide password'"
                                     [attr.aria-pressed]="hide">
                                 <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                             </button>

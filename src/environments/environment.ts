@@ -3,7 +3,14 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+    production: false,
+    products: {
+        getAll: '/products_list',
+        delete: '/delete_product/',
+        update: '/update_product/',
+        insert: '/insert_product',
+        get: '/get_product/'
+    }
 };
 
 /*

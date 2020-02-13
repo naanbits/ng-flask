@@ -8,6 +8,8 @@ import {ProductPageComponent} from './product-page/product-page.component';
 import {ComponentModule} from '../../components/component.module';
 import {MaterialModule} from '../../material.module';
 import { AddProductPageComponent } from './add-product-page/add-product-page.component';
+import {ReactiveFormsModule} from '@angular/forms';
+import { EditProductPageComponent } from './edit-product-page/edit-product-page.component';
 
 
 const components = [
@@ -21,10 +23,11 @@ const modules = [
 ];
 
 @NgModule({
-    declarations: [ProfileUserPageComponent, HomePageComponent, ProductPageComponent, AddProductPageComponent],
+    declarations: [ProfileUserPageComponent, HomePageComponent, ProductPageComponent, AddProductPageComponent, EditProductPageComponent],
     imports: [
         CommonModule,
-        ...modules
+        ...modules,
+        ReactiveFormsModule
     ],
     exports: [
         ...components,

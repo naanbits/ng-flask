@@ -1,5 +1,5 @@
 <mat-drawer-container autosize>
-    <mat-drawer style="width: 250px;" #drawer mode="side" role="navigation" opened>
+    <mat-drawer style="width: 250px;" #drawer [mode]="this.menu" role="navigation" [opened]="this.opened">
         <mat-toolbar>
             <mat-toolbar-row>
                 <div class="img-rounded"></div>
@@ -13,7 +13,7 @@
                 <mat-icon class="mqtt-side-icons" matListIcon> dashboard</mat-icon>
                 Home
             </mat-list-item>
-            <mat-list-item routerLink="/product" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active"
+            <mat-list-item routerLink="/product"  routerLinkActive="active"
                            style="cursor: pointer;" role="listitem">
                 <mat-icon class="mqtt-side-icons" matListIcon> assignment</mat-icon>
                 Inventario
@@ -27,11 +27,14 @@
     <mat-drawer-content role="main" >
         <mat-toolbar color="primary">
             <mat-toolbar-row>
-                <button mat-icon-button (click)="drawer.toggle()">
+                <button mat-icon-button (click)="drawer.toggle()" *ngIf="this.breakpointObserver.isMatched('(max-width: 994px)')">
                     <mat-icon>menu</mat-icon>
                 </button>
                 <span>ABC|Educate</span>
                 <span class="example-spacer"></span>
+                <button (click)="this.logout()" mat-icon-button>
+                    <mat-icon>power_settings_new</mat-icon>
+                </button>
 
             </mat-toolbar-row>
         </mat-toolbar>
