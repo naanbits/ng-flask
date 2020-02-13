@@ -59,7 +59,7 @@ export class ProductService {
             .set('accept', 'application/json')
             .set('content-type', 'application/json');
 
-        return this._httpClient.post( environment.products.delete + id, {
+        return this._httpClient.post( environment.products.update + id, {
             DESCRIPTION: description,
             PRICE: price,
             PRINCIPAL_CODE: code

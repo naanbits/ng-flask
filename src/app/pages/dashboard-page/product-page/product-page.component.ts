@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {ProductService} from '../../../services/product.service';
 import {AuthService} from '../../../services/auth.service';
-import {MatDialog, MatTableDataSource} from '@angular/material';
+import {MatDialog, MatPaginator, MatTableDataSource} from '@angular/material';
 import {SelectionModel} from '@angular/cdk/collections';
 import {isNull} from 'util';
 import {Router} from '@angular/router';
@@ -18,7 +18,7 @@ export class ProductPageComponent {
     dataSource: MatTableDataSource<any> = new MatTableDataSource<any>([]);
     selection = new SelectionModel<any>(false, []);
     rowSelect = null;
-
+    @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
     constructor(private _productService: ProductService,
                 private _authService: AuthService,
                 private _router: Router,
@@ -26,13 +26,14 @@ export class ProductPageComponent {
                 private _snackBar: MatSnackBar) {
         this._productService.productsList().subscribe((e: any) => {
             this.dataSource.data = e;
+            this.dataSource.paginator = this.paginator;
         }, error => {
             this._authService.logout();
         });
     }
 
     filterTable(event) {
-        console.log(event);
+        this.dataSource.filter = event.target.value;
     }
 
     openDialog() {
@@ -42,7 +43,11 @@ export class ProductPageComponent {
         dialogRef.afterClosed().subscribe(e => {
             if (e && !isNull(this.rowSelect)) {
                 this._productService.deleteProduct(this.rowSelect.ID).subscribe(a => {
-                    this._snackBar.open('Producto eliminado Correctamente');
+                    this._snackBar.open('Producto eliminado Correctamente',null, {
+                        duration: 2000,
+                        panelClass: 'success'
+                    });
+                    this.dataSource.data = this.dataSource.data.filter( ( item: any) => item.ID !== this.rowSelect.ID);
                 }, error => {
                     this._snackBar.open('No se pudo eliminar Producto');
                 });

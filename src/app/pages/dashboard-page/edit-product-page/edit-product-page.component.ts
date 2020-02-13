@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ProductService} from '../../../services/product.service';
 
 import {ActivatedRoute, Router} from '@angular/router';
+import {MatSnackBar} from '@angular/material';
 
 @Component({
     selector: 'app-edit-product',
@@ -11,7 +12,10 @@ import {ActivatedRoute, Router} from '@angular/router';
 export class EditProductPageComponent implements OnInit {
     public productEdit;
     public idProduct;
-    constructor(private productService: ProductService, private router: Router, private activatedRoute: ActivatedRoute) {
+    constructor(private productService: ProductService,
+                private router: Router,
+                private activatedRoute: ActivatedRoute,
+                private matSnackBar: MatSnackBar) {
     }
 
     ngOnInit() {
@@ -27,7 +31,11 @@ export class EditProductPageComponent implements OnInit {
         if (form.valid) {
             console.log(form);
             this.productService.productEdit(this.idProduct, form.getRawValue()).subscribe(e => {
-                console.log(e);
+                this.matSnackBar.open('Producto Editado Correctamente', null,{
+                    duration: 2000,
+                    panelClass: 'success'
+                });
+                this.router.navigate(['/']);
             });
         }
     }
