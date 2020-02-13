@@ -8,11 +8,7 @@ import {MatListModule} from '@angular/material/list';
 import {MatTableModule} from '@angular/material/table';
 import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
-<<<<<<< HEAD
-import {MatInputModule, MatSnackBarModule} from '@angular/material';
-=======
 import {MatCheckboxModule, MatDialogModule, MatGridListModule, MatInputModule, MatPaginatorModule} from '@angular/material';
->>>>>>> develop
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 

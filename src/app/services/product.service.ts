@@ -14,9 +14,6 @@ export class ProductService {
         const headers = new HttpHeaders().set('Authorization', 'Bearer ' + this._authService.token)
             .set('accept', 'application/json')
             .set('content-type', 'application/json');
-<<<<<<< HEAD
-        return this._httpClient.get( this.baseUrl+ '/products_list', {
-=======
         console.log(environment.products.getAll);
         return this._httpClient.get(environment.products.getAll, {
             headers
@@ -67,7 +64,6 @@ export class ProductService {
             PRICE: price,
             PRINCIPAL_CODE: code
         }, {
->>>>>>> develop
             headers
         });
     }

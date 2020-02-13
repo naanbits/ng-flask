@@ -9,10 +9,6 @@ import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
     styleUrls: ['./dashboard-page.component.scss']
 })
 export class DashboardPageComponent implements OnInit {
-<<<<<<< HEAD
-
-    constructor(public _authService: AuthService) {
-=======
     menu = 'side';
     opened = true;
     constructor(public _authService: AuthService, private _router: Router, public breakpointObserver: BreakpointObserver) {
@@ -28,7 +24,6 @@ export class DashboardPageComponent implements OnInit {
                 this.opened = true;
             }
         });
->>>>>>> develop
     }
 
     ngOnInit() {
